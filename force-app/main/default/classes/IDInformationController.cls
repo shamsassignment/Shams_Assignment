@@ -1,6 +1,6 @@
 public without sharing class IDInformationController {
     
-    @AuraEnabled 
+    @AuraEnabled
     public static List<Map<String, Object>> saveIDInformation(String idNumber) {
         //Parse Date
         Date dateOfBirth = date.parse(idNumber.substring(2, 4)+'/'+ idNumber.substring(4, 6)+'/19'+idNumber.substring(0, 2));
@@ -35,7 +35,7 @@ public without sharing class IDInformationController {
     // Method to call the Calendarific API and retrieve the list of holidays
     public static List<Map<String, Object>> getPublicHolidays(String year) {
         List<Map<String, Object>> publicHolidays = new List<Map<String, Object>>();
-        String apiUrl = 'https://calendarific.com/api/v2/holidays?&country=ZA&api_key=96d829509d65fd67668dcc63b10674b3b771f6c1&year=' + year;
+        String apiUrl = Label.calendarific + year;
         
         Http http = new Http();
         HttpRequest request = new HttpRequest();

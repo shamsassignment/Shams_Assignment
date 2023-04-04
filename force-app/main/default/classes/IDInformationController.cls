@@ -45,7 +45,6 @@ public without sharing class IDInformationController {
         
         if (response.getStatusCode() == 200) {
             Map<String, Object> result = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
-            system.debug('response.getBody() is '+response.getBody());
             Map<String, Object> responseMap = (Map<String, Object>) result.get('response');
             List<Object> holidaysList = (List<Object>) responseMap.get('holidays');
             

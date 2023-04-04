@@ -1,6 +1,6 @@
 public without sharing class IDInformationController {
     
-    @AuraEnabled
+    @AuraEnabled 
     public static List<Map<String, Object>> saveIDInformation(String idNumber) {
         //Parse Date
         Date dateOfBirth = date.parse(idNumber.substring(2, 4)+'/'+ idNumber.substring(4, 6)+'/19'+idNumber.substring(0, 2));

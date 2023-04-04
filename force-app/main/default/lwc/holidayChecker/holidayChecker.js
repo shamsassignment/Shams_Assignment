@@ -7,7 +7,7 @@ export default class HolidayChecker extends LightningElement {
     inputError;
     inputSuccess;
     publicHolidays;
-    isLoading=false;
+    isLoading=false; 
 
     columns = [
         { label: 'Holiday Name', fieldName: 'name' },

@@ -1,0 +1,50 @@
+<template>
+    <div class="container slds-p-around_medium backcolor">
+        <div class="slds-text-heading_large slds-text-align_center">Check Public Holidays by ID Number</div>
+
+        <div class="slds-m-top_medium">
+            <lightning-input
+                label="Enter your ID Number"
+                type="text"
+                placeholder="e.g. 8001015001080" 
+                value={idNumber}
+                onchange={handleIdNumberChange}>
+            </lightning-input>
+        </div>
+
+        <div class="slds-m-top_medium">
+            <lightning-button
+                label="Search"
+                variant="brand"
+                onclick={handleSearch}
+                disabled={isLoading}>
+            </lightning-button>
+        </div>
+
+        <template if:true={inputError}>
+            <p class="slds-align_absolute-center slds-text-color_error slds-m-top_medium">Please enter a valid ID</p>
+        </template>
+
+        <template if:true={inputSuccess}>
+            <p class="slds-align_absolute-center slds-text-color_success slds-m-top_medium">Search Stored Successfully!</p>
+        </template>
+
+        <template if:true={inputSuccess}>
+            <lightning-datatable
+                data={publicHolidays}
+                columns={columns}
+                key-field="name"
+                show-row-number-column
+                hide-checkbox-column
+                class="slds-m-top_medium"
+                wrap-text-max-lines="2"
+            ></lightning-datatable>
+        </template>
+
+        <template if:true={isLoading}>
+            <div class="slds-spinner_container slds-m-top_medium">
+                <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+            </div>
+        </template>
+    </div>
+</template>

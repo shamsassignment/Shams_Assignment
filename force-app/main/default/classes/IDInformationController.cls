@@ -1,3 +1,9 @@
+/*
+    @description: Controller class for the HolidayChecker LWC
+    @author: Shams 
+    @Date: 04/04/2023
+*/
+
 public without sharing class IDInformationController {
     
     @AuraEnabled
